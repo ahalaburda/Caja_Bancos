@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022115722) do
+ActiveRecord::Schema.define(version: 20141125144337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.string   "nombre_banco"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sucursal"
+    t.string   "direccion"
+    t.integer  "telefono"
+    t.string   "correo"
   end
 
   create_table "boletas_de_depositos", force: true do |t|
@@ -54,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.float    "monto"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nro_cuenta"
   end
 
   create_table "cheques_entrantes", force: true do |t|
@@ -72,6 +77,7 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.integer  "id_firmante"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nro_cuenta"
   end
 
   create_table "cuentas_corrientes_venta", force: true do |t|
@@ -81,6 +87,7 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.float    "monto"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nro_cuenta"
   end
 
   create_table "detalles_boleta_de_depositos", force: true do |t|
@@ -99,6 +106,22 @@ ActiveRecord::Schema.define(version: 20141022115722) do
     t.integer  "id_cheque_entrante"
     t.float    "monto"
     t.integer  "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "firmantes", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_audits", force: true do |t|
+    t.string   "nombre_tabla"
+    t.string   "operacion"
+    t.string   "valor_anterior"
+    t.string   "valor_nuevo"
+    t.string   "nombre_usuario"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

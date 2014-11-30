@@ -13,9 +13,7 @@
   <%= link_to cheques_emitidos_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
     <span style="color: white">XLS</span>
   <% end %>
-</div><!-- botones de reporte -->
-</br>
-
+</div></br>
 <table id="table">
   <thead>
     <tr>
@@ -49,7 +47,6 @@
     <% end %>
   </tbody>
 </table>
-
 <!-- tabla oculta formateada para impresion -->
 <div id="tabla_print">
   <h1>Cheques Emitidos</h1>
@@ -63,7 +60,6 @@
         <th>Monto</th>
       </tr>
     </thead>
-
     <tbody>
       <% @cheques_emitidos.each do |cheques_emitido| %>
         <tr>
@@ -76,4 +72,4 @@
       <% end %>
     </tbody>
     </table>
-</div><!-- tabla oculta formateada para impresion -->
+</div>

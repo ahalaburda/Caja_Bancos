@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :firmantes
+
   resources :log_audits
 
   resources :bancos

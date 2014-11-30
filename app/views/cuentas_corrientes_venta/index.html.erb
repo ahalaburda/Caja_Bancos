@@ -2,6 +2,17 @@
 <div id="form1">
   <%= render 'form' %>
 </div>
+<div class="reports" style="margin-left: 90.333333%">
+  <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span class="glyphicon glyphicon-print" style="color: white"></span>
+  <% end %>
+  <%= link_to cuentas_corrientes_venta_path(@cuentas_corrientes_venta, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span style="color: white">PDF</span>
+  <% end %>
+  <%= link_to cuentas_corrientes_venta_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+    <span style="color: white">XLS</span>
+  <% end %>
+</div></br>
 <table id="table">
   <thead>
     <tr>
@@ -12,7 +23,6 @@
       <th>Acciones</th>
     </tr>
   </thead>
-
   <tbody>
     <% @cuentas_corrientes_venta.each do |cuentas_corrientes_ventas| %>
       <tr>
@@ -21,10 +31,9 @@
         <td><%= cuentas_corrientes_ventas.id_movimiento_de_caja %></td>
         <td><%= cuentas_corrientes_ventas.monto %></td>
         <td>
-            <%= link_to edit_cuentas_corrientes_ventas_path(cuentas_corrientes_ventas), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+            <%= link_to edit_cuentas_corrientes_ventum_path(cuentas_corrientes_ventas), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
                 <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
-            
             <%= link_to cuentas_corrientes_ventas, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
             <span class="glyphicon glyphicon-remove"></span>
           <% end %>
@@ -32,40 +41,27 @@
       </tr>
     <% end %>
   </tbody>
-    <div class="reports" style="margin-left: 90.333333%">
-    <%= link_to '#', onclick: "printpage()", class: 'btn btn-print btn-outline btn-circle', title: 'Imprimir reporte', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-      <span class="glyphicon glyphicon-print" style="color: white"></span>
-    <% end %>
-    <%= link_to cuentas_corrientes_venta_path(@cuentas_corrientes_venta, format: 'pdf'), class: 'btn btn-pdf btn-outline btn-circle', title: 'Exportar en formato PDF', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-      <span style="color: white">PDF</span>
-    <% end %>
-    <%= link_to cuentas_corrientes_venta_path(:format => :xls), class: 'btn btn-xls btn-outline btn-circle', title: 'Exportar en formato XLS', 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
-      <span style="color: white">XLS</span>
-    <% end %>
-  </div>
-  </br></table>
-
+</table>
 <div id="tabla_print">
-<h1>Listado de Cuentas Corrientes</h1>
+  <h1>Listado de Cuentas Corrientes</h1>
   <table class="table table-striped table-hover" >
     <thead>
-    <tr>
-      <th>Id persona</th>
-      <th>Id caja</th>
-      <th>Id movimiento de caja</th>
-      <th>Monto</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cuentas_corrientes_venta.each do |cuentas_corrientes_ventas| %>
       <tr>
-        <td><%= cuentas_corrientes_ventas.id_persona %></td>
-        <td><%= cuentas_corrientes_ventas.id_caja %></td>
-        <td><%= cuentas_corrientes_ventas.id_movimiento_de_caja %></td>
-        <td><%= cuentas_corrientes_ventas.monto %></td>
+        <th>Id persona</th>
+        <th>Id caja</th>
+        <th>Id movimiento de caja</th>
+        <th>Monto</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @cuentas_corrientes_venta.each do |cuentas_corrientes_ventas| %>
+        <tr>
+          <td><%= cuentas_corrientes_ventas.id_persona %></td>
+          <td><%= cuentas_corrientes_ventas.id_caja %></td>
+          <td><%= cuentas_corrientes_ventas.id_movimiento_de_caja %></td>
+          <td><%= cuentas_corrientes_ventas.monto %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
-  </div>
+</div>

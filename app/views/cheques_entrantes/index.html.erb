@@ -51,23 +51,23 @@
 <div id="tabla_print">
   <h1>Cheques de terceros</h1>
   <table class="table table-striped table-hover" >
-   <thead>
-    <tr>
-      <th>Id banco</th>
-      <th>Numero</th>
-      <th>Monto</th>
-      <th>Concepto</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cheques_entrantes.each do |cheques_entrante| %>
+     <thead>
       <tr>
-        <td><%= cheques_entrante.id_banco %></td>
-        <td><%= cheques_entrante.numero %></td>
-        <td><%= cheques_entrante.monto %></td>
-        <td><%= cheques_entrante.concepto %></td>
+        <th>Id banco</th>
+        <th>Numero</th>
+        <th>Monto</th>
+        <th>Concepto</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @cheques_entrantes.each do |cheques_entrante| %>
+        <tr>
+          <td><%= cheques_entrante.id_banco %></td>
+          <td><%= cheques_entrante.numero %></td>
+          <td><%= cheques_entrante.monto %></td>
+          <td><%= cheques_entrante.concepto %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

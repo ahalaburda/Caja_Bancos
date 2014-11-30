@@ -1,7 +1,7 @@
 class BoletasDeDeposito < ActiveRecord::Base
 	has_many :DetallesBoletaDeDepositos
 	belongs_to :Persona
-	belongs_to :CuentasBancaria
+	belongs_to :CuentasBancarium
 	belongs_to :Banco
 	belongs_to :Caja
 
@@ -42,4 +42,8 @@ class BoletasDeDeposito < ActiveRecord::Base
 validates :fecha,
 		:presence => {
 			message: 'este campo es requerido'}
+
+	def name_with_initial
+		"#{nro_cuenta}"
+	end
 end
